@@ -1,0 +1,15 @@
+frontend 
+
+- dependencies
+    - axios
+
+- api endpoints
+
+
+
+
+To fix
+
+- in frontend folder -> package.json -> "proxy": "http://127.0.0.1:5000"
+
+
