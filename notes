@@ -13,3 +13,14 @@ To fix
 - in frontend folder -> package.json -> "proxy": "http://127.0.0.1:5000"
 
 
+
+
+easy push
+
+- touch makefile
+- git:
+	git add .
+	git commit -m "$m"
+	git push -u origin main 
+- make git m="basic controller setup"
+
