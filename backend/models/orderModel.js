@@ -9,9 +9,7 @@ const orderSchema = mongoose.Schema(
     },
     orderItems: [
       {
-        // name: { type: String, required: true },
         qty: { type: Number, required: true },
-        // image: { type: String },
         price: { type: Number, required: true },
         book: {
           type: mongoose.Schema.Types.ObjectId,
@@ -22,12 +20,10 @@ const orderSchema = mongoose.Schema(
     ],
     totalPrice: {
       type: Number,
-      //   required: true,
       default: 0.0,
     },
     isPaid: {
       type: Boolean,
-      //   required: true,
       default: true,
     },
     paidAt: {

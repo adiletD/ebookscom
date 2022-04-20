@@ -1,4 +1,5 @@
 import asyncHandler from 'express-async-handler'
+import nodemailer from 'nodemailer'
 import User from '../models/userModel.js'
 import generateToken from '../utils/generateToken.js'
 
@@ -52,6 +53,30 @@ const registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
+    })
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'ebookscom@fastmail.com',
+        pass: 'ebookscomebookscom',
+      },
+    })
+
+    var mailOptions = {
+      from: 'ebookscom@fastmail.com',
+      to: email,
+      subject: 'WELCOME to EBOOKS!!!@POLYU',
+      text:
+        'Hi dear friend!! Our team welcomes you to EBOOKS.COM, the best online bookstore ever made by humankind!',
+    }
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log('Email sent: ' + info.response)
+      }
     })
   } else {
     res.status(400)
